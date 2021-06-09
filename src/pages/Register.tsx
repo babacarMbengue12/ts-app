@@ -116,21 +116,21 @@ const Register = ({ history }: { history: any }) => {
             name="firstName"
             value={data.firstName}
             onChange={onChange}
-            error={errors.firstName}
+            error={errors.firstName || errors.first_name}
             label="First Name"
           />
           <Input
             name="lastName"
             value={data.lastName}
             onChange={onChange}
-            error={errors.lastName}
+            error={errors.lastName || errors.last_name}
             label="Last Name"
           />
           <Input
             name="phoneNumber"
             value={data.phoneNumber}
             onChange={onChange}
-            error={errors.phoneNumber}
+            error={errors.phoneNumber || errors.phone_number}
             type="tel"
             label="Phone Number"
           />
@@ -138,7 +138,7 @@ const Register = ({ history }: { history: any }) => {
             name="birthdate"
             value={data.birthdate}
             onChange={onChange}
-            error={errors.birthdate}
+            error={errors.birthdate || errors.birth_date}
             label="Birth Date"
             type="date"
           />

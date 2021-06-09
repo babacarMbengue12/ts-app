@@ -18,13 +18,7 @@ import Home from "./pages/Home";
 import Account from "./pages/Account";
 const NETWORK_INTERFACE = "https://api.bazzile.ch";
 
-interface AppProps {}
-interface AppState {
-  isLoadingComplete: boolean;
-  client?: ApolloClient<InMemoryCache>;
-  token?: string;
-}
-export default class App<RootProps, RootState> extends Component {
+export default class App extends Component {
   state = {
     isLoadingComplete: false,
     client: null,
