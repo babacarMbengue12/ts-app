@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import * as React from "react";
+import { Redirect } from "react-router";
 import { AppButton } from "../components/Form";
 
 export interface HomeProps {
@@ -7,6 +8,8 @@ export interface HomeProps {
 }
 
 const Home = ({ history }: HomeProps) => {
+  const token = localStorage.getItem("token");
+  if (!token) return <Redirect to="/register" />;
   const [user, setUser] = React.useState(null);
   const query = useQuery(gql`
     query accountsProfile {
@@ -24,7 +27,7 @@ const Home = ({ history }: HomeProps) => {
   `);
   React.useEffect(() => {
     if (!query.loading) {
-      const item = query.data.accountsProfile;
+      const item = query.data?.accountsProfile;
       setUser(item);
     }
   }, [query.loading]);
